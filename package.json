@@ -1,0 +1,33 @@
+{
+  "name": "mac.js",
+  "version": "1.0.0",
+  "description": "The CLI for MacOS written in JavaScript",
+  "main": "bin/mac.js",
+  "bin": {
+    "mac": "bin/mac.js"
+  },
+  "scripts": {
+    "lint": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pmbenjamin/mac.js.git"
+  },
+  "keywords": [
+    "macos",
+    "cli"
+  ],
+  "author": "Peter Benjamin <petermbenjamin@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pmbenjamin/mac.js/issues"
+  },
+  "homepage": "https://github.com/pmbenjamin/mac.js#readme",
+  "devDependencies": {
+    "standard": "^8.5.0"
+  },
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "commander": "^2.9.0"
+  }
+}
