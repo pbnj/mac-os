@@ -18,12 +18,7 @@ const commands = {
   disable: `sudo defaults write /Library/Preferences/com.apple.Bluetooth ControllerPowerState -int 0 && sudo killall -HUP blued`
 }
 
-for (let opt in options) {
-  if (commander[opt]) {
-    exec(commands[opt])
-    break
-  } else {
-    commander.outputHelp()
-    break
-  }
-}
+if (commander.status) exec(commands.status)
+else if (commander.enable) exec(commands.enable)
+else if (commander.disable) exec(commands.disable)
+else commander.outputHelp()

@@ -22,12 +22,11 @@ const commands = {
   list: 'sudo /usr/libexec/ApplicationFirewall/socketfilterfw --list'
 }
 
-for (let opt in options) {
-  if (commander[opt]) {
-    exec(commands[opt])
-    break
-  } else {
-    commander.outputHelp()
-    break
-  }
+if (commander.status) exec(commands.status)
+else if (commander.enable) exec(commands.enable)
+else if (commander.disable) exec(commands.disable)
+else if (commander.list) exec(commands.list)
+else {
+  console.log('in else{}')
+  commander.outputHelp()
 }
