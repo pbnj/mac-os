@@ -1,4 +1,4 @@
-# mac.js
+# mac
 The CLI for MacOS written in JavaScript
 
 Inspided by the [m-cli](https://github.com/rgcr/m-cli) project.
