@@ -34,5 +34,55 @@
   "dependencies": {
     "chalk": "^1.1.3",
     "commander": "^2.9.0"
+  },
+  "macOS": {
+    "battery": {
+      "desc": "Battery Info",
+      "status": {
+        "flag": "-s, --status",
+        "cmd": "pmset -g batt"
+      }
+    },
+    "bluetooth": {
+      "desc": "Bluetooth Info",
+      "status": {
+        "flag": "-s, --status",
+        "cmd": "defaults read /Library/Preferences/com.apple.Bluetooth ControllerPowerState | awk '{ if($1 != 0) {print \"Bluetooth: ON\"} else { print \"Bluetooth: OFF\" }  }'"
+      },
+      "enable": {
+        "flag": "-e, --enable",
+        "cmd": "sudo defaults write /Library/Preferences/com.apple.Bluetooth ControllerPowerState -int 1 && sudo killall -HUP blued"
+      },
+      "disable": {
+        "flag": "-d, --disable",
+        "cmd": "sudo defaults write /Library/Preferences/com.apple.Bluetooth ControllerPowerState -int 0 && sudo killall -HUP blued"
+      }
+    },
+    "display": {
+      "desc": "Display Info",
+      "status": {
+        "flag": "-s, --status",
+        "cmd": "system_profiler SPDisplaysDataType"
+      }
+    },
+    "firewall": {
+      "desc": "Firewall Info",
+      "status": {
+        "flag": "-s, --status",
+        "cmd": "/usr/libexec/ApplicationFirewall/socketfilterfw --getglobalstate"
+      },
+      "enable": {
+        "flag": "-e, --enable",
+        "cmd": "sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on"
+      },
+      "disable": {
+        "flag": "-d, --disable",
+        "cmd": "sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate off"
+      },
+      "list": {
+        "flag": "-l, --list",
+        "cmd": "/usr/libexec/ApplicationFirewall/socketfilterfw --list"
+      }
+    }
   }
 }

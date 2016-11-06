@@ -3,17 +3,12 @@
 const program = require('commander')
 const pkgJson = require('../package.json')
 
-const availableCommands = {
-  battery: 'Battery Info',
-  bluetooth: 'Bluetooth Info',
-  display: 'Display Info',
-  firewall: 'Firewall Info'
-}
+const macOS = pkgJson.macOS
 
 program.version(pkgJson.version)
 
-for (let cmd in availableCommands) {
-  program.command(cmd, availableCommands[cmd])
+for (let cmd in macOS) {
+  program.command(cmd, macOS[cmd].desc)
 }
 
 program.parse(process.argv)

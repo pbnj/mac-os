@@ -1,30 +1,16 @@
 const program = require('commander')
 const exec = require('../lib/status')
-
 // TODO: add & remove firewall rules
-const firewall = {
-  flags: {
-    status: '-s, --status',
-    enable: '-e, --enable',
-    disable: '-d, --disable',
-    list: '-l, --list'
-  },
-  cmds: {
-    status: '/usr/libexec/ApplicationFirewall/socketfilterfw --getglobalstate',
-    enable: 'sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on',
-    disable: 'sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate off',
-    list: '/usr/libexec/ApplicationFirewall/socketfilterfw --list'
-  }
-}
+const firewall = require('../package.json').macOS.firewall
 
-for (let f in firewall.flags) {
-  program.option(firewall.flags[f])
+for (let flags in firewall) {
+  if (typeof firewall[flags] === 'object') program.option(firewall[flags].flag)
 }
 
 program.parse(process.argv)
 
-if (program.status) exec(firewall.cmds.status)
-else if (program.enable) exec(firewall.cmds.enable)
-else if (program.disable) exec(firewall.cmds.disable)
-else if (program.list) exec(firewall.cmds.list)
+if (program.status) exec(firewall.status.cmd)
+else if (program.enable) exec(firewall.enable.cmd)
+else if (program.disable) exec(firewall.disable.cmd)
+else if (program.list) exec(firewall.list.cmd)
 else program.outputHelp()

@@ -1,20 +1,13 @@
 const program = require('commander')
 const exec = require('../lib/status')
 
-const battery = {
-  flags: {
-    status: '-s, --status'
-  },
-  cmds: {
-    status: 'pmset -g batt'
-  }
-}
+const battery = require('../package.json').macOS.battery
 
-for (let f in battery.flags) {
-  program.option(battery.flags[f])
+for (let flags in battery) {
+  if (typeof battery[flags] === 'object') program.option(battery[flags].flag)
 }
 
 program.parse(process.argv)
 
-if (program.status) exec(battery.cmds.status)
+if (program.status) exec(battery.status.cmd)
 else program.outputHelp()

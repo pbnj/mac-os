@@ -1,20 +1,15 @@
 const program = require('commander')
 const exec = require('../lib/status')
+// 1. import configuration
+const display = require('../package.json').macOS.display
 
-const display = {
-  flags: {
-    status: '-s, --status'
-  },
-  cmds: {
-    status: 'system_profiler SPDisplaysDataType'
-  }
-}
-
-for (let f in display.flags) {
-  program.option(display.flags[f])
+// 2. setup each flag dynamically
+for (let flags in display) {
+  if (typeof display[flags] === 'object') program.option(display[flags].flag)
 }
 
 program.parse(process.argv)
 
-if (program.status) exec(display.cmds.status)
+// 3. execute each flag manually
+if (program.status) exec(display.status.cmd)
 else program.outputHelp()
