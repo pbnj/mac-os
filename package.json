@@ -1,5 +1,5 @@
 {
-  "name": "mac.js",
+  "name": "mac-os",
   "version": "1.0.0",
   "description": "The CLI for MacOS written in JavaScript",
   "main": "bin/mac.js",
@@ -14,8 +14,13 @@
     "url": "git+https://github.com/pmbenjamin/mac.js.git"
   },
   "keywords": [
+    "cli",
+    "mac",
     "macos",
-    "cli"
+    "apple",
+    "sierra",
+    "yosemite",
+    "elcapitan"
   ],
   "author": "Peter Benjamin <petermbenjamin@gmail.com>",
   "license": "MIT",

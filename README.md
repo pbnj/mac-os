@@ -1,4 +1,4 @@
-# mac
+# mac-os
 The CLI for MacOS written in JavaScript
 
 Inspided by the [m-cli](https://github.com/rgcr/m-cli) project.
@@ -6,7 +6,7 @@ Inspided by the [m-cli](https://github.com/rgcr/m-cli) project.
 **DISCLAIMER** Package is still under heavy development. Features may change without notice.
 
 ## Install
-`npm install -g mac`
+`npm install -g mac-os`
 
 ## Demo
 ![mac demo](./img/mac_demo.gif)
