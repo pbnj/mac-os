@@ -1,29 +1,30 @@
 const program = require('commander')
 const exec = require('../lib/status')
 
-// TODO: add & remove
-const options = {
-  status: '-s, --status',
-  enable: '-e, --enable',
-  disable: '-d, --disable',
-  list: '-l, --list'
+// TODO: add & remove firewall rules
+const firewall = {
+  flags: {
+    status: '-s, --status',
+    enable: '-e, --enable',
+    disable: '-d, --disable',
+    list: '-l, --list'
+  },
+  cmds: {
+    status: '/usr/libexec/ApplicationFirewall/socketfilterfw --getglobalstate',
+    enable: 'sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on',
+    disable: 'sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate off',
+    list: '/usr/libexec/ApplicationFirewall/socketfilterfw --list'
+  }
 }
 
-for (let opt in options) {
-  program.option(options[opt])
+for (let f in firewall.flags) {
+  program.option(firewall.flags[f])
 }
+
 program.parse(process.argv)
 
-// TODO: add & remove
-const commands = {
-  status: 'sudo /usr/libexec/ApplicationFirewall/socketfilterfw --getglobalstate',
-  enable: 'sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on',
-  disable: 'sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate off',
-  list: 'sudo /usr/libexec/ApplicationFirewall/socketfilterfw --list'
-}
-
-if (program.status) exec(commands.status)
-else if (program.enable) exec(commands.enable)
-else if (program.disable) exec(commands.disable)
-else if (program.list) exec(commands.list)
+if (program.status) exec(firewall.cmds.status)
+else if (program.enable) exec(firewall.cmds.enable)
+else if (program.disable) exec(firewall.cmds.disable)
+else if (program.list) exec(firewall.cmds.list)
 else program.outputHelp()
