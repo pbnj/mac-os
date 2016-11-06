@@ -1,14 +1,15 @@
 # mac.js
 The CLI for MacOS written in JavaScript
 
-**DISCLAIMER** Package is still under heavy development. Features may change without notice.
+Inspided by the [m-cli](https://github.com/rgcr/m-cli) project.
 
+**DISCLAIMER** Package is still under heavy development. Features may change without notice.
 
 ## Install
 `npm install -g mac`
 
 ## Demo
-
+![mac demo](./img/mac_demo.gif)
 
 ## Usage
 - Help
