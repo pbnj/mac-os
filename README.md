@@ -12,7 +12,6 @@ Inspided by the [m-cli](https://github.com/rgcr/m-cli) project.
 ![mac demo](./img/mac_demo.gif)
 
 ## Usage
-- Help
 ```
 $ mac
 
@@ -33,63 +32,31 @@ $ mac
     -V, --version  output the version number
 ```
 
-- Battery
-```
-$ mac battery
-  Now drawing from 'AC Power'
-  -InternalBattery-0 (id=3997795)        100%; charged; 0:00 remaining present: true
-```
-
-- Bluetooth
-```
-$ mac bluetooth
-
-  Usage: mac-bluetooth [options]
-
-  Options:
-
-    -h, --help     output usage information
-    -s, --status
-    -e, --enable
-    -d, --disable
-```
-  - Status
-  ```
-  $ mac bluetooth -s
-    Bluetooth: OFF
-  ```
-
-- Display
-```
-$ mac display
-Graphics/Displays:
-
-    AMD Radeon R9 M370X:
-
-      ...
-
-    Intel Iris Pro:
-
-      ...
-```
-
-- Firewall
-```
-$ mac firewall
-  Usage: mac-firewall [options]
-
-  Options:
-
-    -h, --help     output usage information
-    -s, --status   
-    -e, --enable   
-    -d, --disable  
-    -l, --list     
-```
-  - Status
-  ```
-  $ mac firewall -s
-  Password:
-  Firewall is enabled. (State = 1)
-
-  ```
+## TODO
+- Add support for:
+  - [ ] Disk
+  - [ ] DNS
+  - [ ] Dock
+  - [ ] Finder
+  - [ ] Add/Remove Firewall 
+  - [ ] Gatekeeper
+  - [ ] Group
+  - [ ] Hostname
+  - [ ] Machine Info
+  - [ ] Lock
+  - [ ] Network
+  - [ ] Caffeinate
+  - [ ] Notification
+  - [ ] NTP
+  - [ ] Restart
+  - [ ] Safeboot
+  - [ ] Screensaver
+  - [ ] Shutdown
+  - [ ] Sleep
+  - [ ] Timezone
+  - [ ] Trash
+  - [ ] Update
+  - [ ] User
+  - [ ] Volume
+  - [ ] VPN
+  - [ ] WiFi
