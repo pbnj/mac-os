@@ -50,6 +50,7 @@ Add support for:
   - [ ] NTP
   - [ ] Restart
   - [ ] Safeboot
+  - [ ] Screencapture
   - [ ] Screensaver
   - [ ] Shutdown
   - [ ] Sleep
