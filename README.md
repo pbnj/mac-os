@@ -33,7 +33,7 @@ $ mac
 ```
 
 ## TODO
-- Add support for:
+Add support for:
   - [ ] Disk
   - [ ] DNS
   - [ ] Dock
