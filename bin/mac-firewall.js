@@ -1,4 +1,4 @@
-const commander = require('commander')
+const program = require('commander')
 const exec = require('../lib/status')
 
 // TODO: add & remove
@@ -10,9 +10,9 @@ const options = {
 }
 
 for (let opt in options) {
-  commander.option(options[opt])
+  program.option(options[opt])
 }
-commander.parse(process.argv)
+program.parse(process.argv)
 
 // TODO: add & remove
 const commands = {
@@ -22,8 +22,8 @@ const commands = {
   list: 'sudo /usr/libexec/ApplicationFirewall/socketfilterfw --list'
 }
 
-if (commander.status) exec(commands.status)
-else if (commander.enable) exec(commands.enable)
-else if (commander.disable) exec(commands.disable)
-else if (commander.list) exec(commands.list)
-else commander.outputHelp()
+if (program.status) exec(commands.status)
+else if (program.enable) exec(commands.enable)
+else if (program.disable) exec(commands.disable)
+else if (program.list) exec(commands.list)
+else program.outputHelp()

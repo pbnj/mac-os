@@ -1,6 +1,6 @@
-const commander = require('commander')
+const program = require('commander')
 const exec = require('../lib/status')
 
-commander.parse(process.argv)
+program.parse(process.argv)
 
 exec(`system_profiler SPDisplaysDataType`)

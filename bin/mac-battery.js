@@ -1,7 +1,7 @@
-const commander = require('commander')
+const program = require('commander')
 const exec = require('../lib/status')
 
-commander.parse(process.argv)
+program.parse(process.argv)
 
 const statusCmd = 'pmset -g batt'
 exec(statusCmd)

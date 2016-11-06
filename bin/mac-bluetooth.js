@@ -1,4 +1,4 @@
-const commander = require('commander')
+const program = require('commander')
 const exec = require('../lib/status')
 
 const options = {
@@ -8,9 +8,9 @@ const options = {
 }
 
 for (let opt in options) {
-  commander.option(options[opt])
+  program.option(options[opt])
 }
-commander.parse(process.argv)
+program.parse(process.argv)
 
 const commands = {
   status: `defaults read /Library/Preferences/com.apple.Bluetooth ControllerPowerState | awk '{ if($1 != 0) {print "Bluetooth: ON"} else { print "Bluetooth: OFF" }  }'`,
@@ -18,7 +18,7 @@ const commands = {
   disable: `sudo defaults write /Library/Preferences/com.apple.Bluetooth ControllerPowerState -int 0 && sudo killall -HUP blued`
 }
 
-if (commander.status) exec(commands.status)
-else if (commander.enable) exec(commands.enable)
-else if (commander.disable) exec(commands.disable)
-else commander.outputHelp()
+if (program.status) exec(commands.status)
+else if (program.enable) exec(commands.enable)
+else if (program.disable) exec(commands.disable)
+else program.outputHelp()

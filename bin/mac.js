@@ -1,6 +1,6 @@
 #! /usr/bin/env node
 
-const commander = require('commander')
+const program = require('commander')
 const pkgJson = require('../package.json')
 
 const availableCommands = {
@@ -10,10 +10,10 @@ const availableCommands = {
   firewall: 'Firewall Info'
 }
 
-commander.version(pkgJson.version)
+program.version(pkgJson.version)
 
 for (let cmd in availableCommands) {
-  commander.command(cmd, availableCommands[cmd])
+  program.command(cmd, availableCommands[cmd])
 }
 
-commander.parse(process.argv)
+program.parse(process.argv)
