@@ -26,7 +26,4 @@ if (commander.status) exec(commands.status)
 else if (commander.enable) exec(commands.enable)
 else if (commander.disable) exec(commands.disable)
 else if (commander.list) exec(commands.list)
-else {
-  console.log('in else{}')
-  commander.outputHelp()
-}
+else commander.outputHelp()
