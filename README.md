@@ -24,6 +24,7 @@ $ mac
     bluetooth   Bluetooth Info
     display     Display Info
     firewall    Firewall Info
+    shutdown    Shutdown Mac
     help [cmd]  display help for [cmd]
 
   Options:
@@ -60,7 +61,7 @@ Add support for:
   - [ ] Safeboot
   - [ ] Screencapture
   - [ ] Screensaver
-  - [ ] Shutdown
+  - [x] Shutdown
   - [ ] Sleep
   - [ ] Timezone
   - [ ] Trash

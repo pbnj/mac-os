@@ -83,6 +83,16 @@
         "flag": "-l, --list",
         "cmd": "/usr/libexec/ApplicationFirewall/socketfilterfw --list"
       }
+    },
+    "shutdown": {
+      "desc": "Shutdown Mac",
+      "force": {
+        "flag": "-f, --force",
+        "cmd": "osascript -e 'tell application \"System Events\" to shut down'"
+      },
+      "default": {
+        "cmd": "osascript -e 'tell app \"loginwindow\" to «event aevtrsdn»'"
+      }
     }
   }
 }
