@@ -1,4 +1,6 @@
 # mac-os
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/petermbenjamin/mac-os.svg)](https://greenkeeper.io/)
 The CLI for MacOS written in JavaScript
 
 Inspided by the [m-cli](https://github.com/rgcr/m-cli) project.
